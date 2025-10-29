@@ -43,10 +43,11 @@ if prompt := st.chat_input("Describe the image you want to generate..."):
                     size="1024x1024" # set image size
                 )
                 image_url = response['data'][0]['url']  # Extract the image URL from the response
-                st.image(image_url, caption="Here is your generated image!", use_column_width=True)
+                st.image(image_url, caption="Here is your generated image!", use_container_width=True)
 
             except Exception as e:
                 st.error(f"Error generating image: {str(e)}")
 
     # Save the reply (in this case, the image URL or success message)
     st.session_state.messages.append({"role": "assistant", "content": "Image generated successfully!"})
+
